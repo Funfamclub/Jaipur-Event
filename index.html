@@ -201,6 +201,59 @@
     position: relative;
     z-index: 3;
   }
+  /* ---------- limited-time offer ---------- */
+.offer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 4px 0 18px;
+  position: relative;
+  z-index: 3;
+}
+
+.offer-price {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--cherry-deep);
+  white-space: nowrap;
+}
+
+.offer-old-price {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: line-through;
+  margin-left: 4px;
+}
+
+.offer-timer {
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: 14px;
+  padding: 7px 10px;
+  box-shadow: 3px 3px 0 var(--ink);
+  text-align: center;
+  min-width: 142px;
+}
+
+.offer-timer-label {
+  display: block;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  margin-bottom: 2px;
+}
+
+.offer-countdown {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--cherry-deep);
+}
   .price-line .dot { color: var(--cherry-deep); }
 
   .btn-primary {
@@ -471,10 +524,21 @@
   <div>📍 Bubblier, Vaishali Nagar, Jaipur</div>
 </div>
 
-<p class="price-line">
-  <span class="dot">₹299</span> &nbsp;·&nbsp; Hurry only 10 seats left!
-</p>
+<div class="offer-row">
+  <div class="offer-price">
+    ₹299
+    <span class="offer-old-price">₹499</span>
+  </div>
 
+  <div class="offer-timer">
+    <span class="offer-timer-label">OFFER ENDS IN</span>
+    <span class="offer-countdown" id="offer-countdown">12:00:00</span>
+  </div>
+</div>
+
+<p class="price-line">
+  <span class="dot">₹299</span> &nbsp;·&nbsp; 15 seats
+</p>
     <a href="https://rzp.io/rzp/UpsFTGq" class="btn-primary" id="hero-cta">🌷 Book my seat</a>
   </div>
 </section>
