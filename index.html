@@ -205,9 +205,9 @@
 
 .offer-row {
   display: grid;
-  grid-template-columns: 75px 142px 70px 135px;
+  grid-template-columns: 1fr 1.35fr;
   align-items: center;
-  column-gap: 6px;
+  gap: 12px 14px;
   width: 100%;
   margin: 4px 0 18px;
   position: relative;
@@ -217,11 +217,15 @@
 /* PRICE */
 
 .offer-price {
+  grid-column: 1;
+  grid-row: 1;
+
   font-family: var(--font-display);
-  font-size: 1.35rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--cherry-deep);
   white-space: nowrap;
+  text-align: left;
 }
 
 .offer-old-price {
@@ -235,7 +239,10 @@
 /* COUNTDOWN */
 
 .offer-timer {
-  width: 142px;
+  grid-column: 2;
+  grid-row: 1;
+
+  width: 100%;
   background: var(--paper);
   border: 2px solid var(--ink);
   border-radius: 14px;
@@ -347,13 +354,6 @@
 
 /* ---------- MOBILE ---------- */
 
-@media (max-width: 600px) {
-
-  .offer-row {
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
-
   .offer-price {
     font-size: 1.4rem;
   }
@@ -362,18 +362,6 @@
     width: 100%;
   }
 
-  .offer-row .price-line {
-    width: auto;
-    font-size: 1rem;
-    white-space: normal;
-  }
-
-  .offer-row .btn-primary {
-    width: 100%;
-    min-width: 0;
-  }
-}
-  
   .price-line .dot { color: var(--cherry-deep); }
 
   .btn-primary {
