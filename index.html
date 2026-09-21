@@ -6,12 +6,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&amp;family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,600&amp;family=Caveat:wght@500;700&amp;display=swap" rel="stylesheet">
 <style>
-  /* ====== EDITABLE WORKSHOP DETAILS ====== */
-  :root {
-    --workshop-name: "Make Your Own Forever Bouquet";
-  }
-
-  /* ---------- tokens ---------- */
   :root {
     --cream: #FFF8EF;
     --cherry: #FF4D5E;
@@ -24,7 +18,6 @@
     --ink: #3A2E2C;
     --ink-soft: #6B5C58;
     --paper: #FFFDF9;
-
     --font-display: "Fredoka", sans-serif;
     --font-body: "Nunito", sans-serif;
     --font-hand: "Caveat", cursive;
@@ -38,40 +31,33 @@
     color: var(--ink);
     font-family: var(--font-body);
     overflow-x: hidden;
-    padding-bottom: 84px; /* space for sticky mobile bar */
+    padding-bottom: 58px;
   }
 
   img { max-width: 100%; display: block; }
-
   a { color: inherit; }
 
   .wrap {
+    width: 100%;
     max-width: 480px;
     margin: 0 auto;
     padding: 0 20px;
     position: relative;
   }
 
-  /* ---------- reveal on scroll ---------- */
-  .reveal {
-  opacity: 1;
-  transform: none;
-}
-
+  .reveal { opacity: 1; transform: none; }
   @media (prefers-reduced-motion: reduce) {
-    .reveal { opacity: 1; transform: none; transition: none; }
+    .reveal { opacity: 1; transform: none; }
     * { animation: none !important; }
   }
 
-  /* ---------- decorative bits ---------- */
   .doodle {
     position: absolute;
     pointer-events: none;
     z-index: 1;
   }
-  .float {
-    animation: floaty 5s ease-in-out infinite;
-  }
+
+  .float { animation: floaty 5s ease-in-out infinite; }
   .float.slow { animation-duration: 7s; }
   .float.rev { animation-direction: alternate-reverse; }
   @keyframes floaty {
@@ -93,18 +79,10 @@
     color: var(--cherry-deep);
   }
 
-  .tape {
-    position: absolute;
-    width: 70px;
-    height: 24px;
-    background: rgba(255, 213, 79, 0.75);
-    border: 1px solid rgba(0,0,0,0.06);
-  }
-
-  /* ---------- hero ---------- */
+  /* HERO */
   .hero {
     position: relative;
-    padding: 44px 0 40px;
+    padding: 36px 0 36px;
     background: var(--pink);
     border-bottom: 3px solid var(--ink);
     overflow: hidden;
@@ -152,6 +130,7 @@
     z-index: 3;
     color: var(--ink);
   }
+
   .hero-headline .bloom { color: var(--cherry-deep); }
 
   .hero-sub-sticker {
@@ -163,214 +142,175 @@
   .hero-photo-frame {
     position: relative;
     z-index: 2;
-    margin: 8px 0 22px;
+    margin: 8px 0 20px;
     border: 3px solid var(--ink);
     background: var(--paper);
     padding: 8px 8px 34px;
     transform: rotate(-1.5deg);
     box-shadow: 6px 6px 0 var(--ink);
   }
-  .hero-photo-frame .ph {
+
+  .hero-photo-frame .hero-image {
     width: 100%;
-    aspect-ratio: 4/3;
-    background: repeating-linear-gradient(135deg, #FFEAD1, #FFEAD1 10px, #FFDFC0 10px, #FFDFC0 20px);
+    height: auto;
     border: 1px dashed var(--ink-soft);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-family: var(--font-body);
-    font-weight: 700;
-    font-size: 0.8rem;
-    color: var(--ink-soft);
-    padding: 12px;
+    object-fit: cover;
   }
+
   .hero-photo-frame .cap {
     font-family: var(--font-hand);
     font-size: 1.05rem;
     text-align: center;
-    margin-top: 8px;
+    margin: 8px 0 0;
     color: var(--ink-soft);
   }
 
-  .price-line {
-    font-family: var(--font-display);
-    font-size: 1.35rem;
-    font-weight: 600;
-    margin-bottom: 18px;
+  .event-meta {
+    position: relative;
+    z-index: 3;
+    font-size: 0.98rem;
+    line-height: 1.45;
+    margin: 6px 0 8px;
+  }
+
+  /* OFFER: PRICE + COUNTDOWN / SEATS / CTA */
+  .offer-row {
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr);
+    grid-template-rows: auto auto auto;
+    align-items: center;
+    column-gap: 14px;
+    row-gap: 12px;
+    width: 100%;
+    margin: 8px 0 0;
     position: relative;
     z-index: 3;
   }
-/* ---------- LIMITED-TIME OFFER ---------- */
-
-.offer-row .btn-primary {
-  grid-column: 1 / -1;
-  grid-row: 3;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 100%;
-  min-width: 0;
-
-  padding: 16px 10px;
-.offer-row {
-  display: grid;
-  grid-template-columns: 90px 1fr;
-  gap: 12px;
-  width: 100%;
-  margin: 4px 0 18px;
-  position: relative;
-  z-index: 3;
-  align-items: center;
-}
-
-/* PRICE */
-
-.offer-price {
-  grid-column: 1;
-  grid-row: 1;
-
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--cherry-deep);
-  white-space: nowrap;
-}
-
-.offer-old-price {
-  color: var(--ink-soft);
-  font-size: 0.82rem;
-  font-weight: 600;
-  text-decoration: line-through;
-  margin-left: 2px;
-}
-
-/* COUNTDOWN */
-
-.offer-timer {
-  grid-column: 2;
-  grid-row: 1;
-
-  width: 100%;
-  background: var(--paper);
-  border: 2px solid var(--ink);
-  border-radius: 14px;
-  padding: 7px 8px;
-  box-shadow: 3px 3px 0 var(--ink);
-  text-align: center;
-}
-
-.offer-timer-label {
-  display: block;
-  font-size: 0.60rem;
-  font-weight: 800;
-  letter-spacing: 0.03em;
-  color: var(--ink-soft);
-  margin-bottom: 2px;
-  white-space: nowrap;
-}
-
-.offer-countdown {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 6px;
-  margin-top: 4px;
-}
-
-.offer-countdown div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 23px;
-}
-
-.offer-countdown strong {
-  font-family: var(--font-display);
-  font-size: 0.95rem;
-  line-height: 1;
-  color: var(--cherry-deep);
-}
-
-.offer-countdown small {
-  display: block;
-  font-family: var(--font-body);
-  font-size: 0.48rem;
-  line-height: 1;
-  margin-top: 4px;
-  color: var(--ink-soft);
-  font-weight: 800;
-}
-
-/* SEATS */
-
-.offer-row .price-line {
-  width: 70px;
-  margin: 0;
-  padding: 0;
-  font-family: var(--font-display);
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1.15;
-  color: var(--ink);
-  text-align: center;
-}
-
-/* BOOK BUTTON */
-
-.offer-row .btn-primary {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 135px;
-  min-width: 135px;
-  box-sizing: border-box;
-
-  padding: 16px 10px;
-
-  text-align: center;
-  background: var(--cherry);
-  color: var(--paper);
-
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  font-weight: 600;
-
-  border: 3px solid var(--ink);
-  border-radius: 18px;
-  box-shadow: 5px 5px 0 var(--ink);
-
-  text-decoration: none;
-  cursor: pointer;
-
-  position: relative;
-  z-index: 3;
-
-  transition: transform .15s ease, box-shadow .15s ease;
-}
-
-.offer-row .btn-primary:hover {
-  transform: translate(2px, 2px);
-  box-shadow: 3px 3px 0 var(--ink);
-}
-
-.offer-row .btn-primary:active {
-  transform: translate(4px, 4px);
-  box-shadow: 1px 1px 0 var(--ink);
-}
-
-
-/* ---------- MOBILE ---------- */
 
   .offer-price {
-    font-size: 1.4rem;
+    grid-column: 1;
+    grid-row: 1;
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--cherry-deep);
+    white-space: nowrap;
+    margin: 0;
+  }
+
+  .offer-old-price {
+    color: var(--ink-soft);
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-decoration: line-through;
+    margin-left: 2px;
   }
 
   .offer-timer {
+    grid-column: 2;
+    grid-row: 1;
     width: 100%;
+    max-width: 220px;
+    justify-self: stretch;
+    background: var(--paper);
+    border: 2px solid var(--ink);
+    border-radius: 14px;
+    padding: 7px 8px;
+    box-shadow: 3px 3px 0 var(--ink);
+    text-align: center;
+  }
+
+  .offer-timer-label {
+    display: block;
+    font-size: 0.60rem;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    color: var(--ink-soft);
+    margin-bottom: 2px;
+    white-space: nowrap;
+  }
+
+  .offer-countdown {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 6px;
+    margin-top: 4px;
+  }
+
+  .offer-countdown div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 23px;
+  }
+
+  .offer-countdown strong {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    line-height: 1;
+    color: var(--cherry-deep);
+  }
+
+  .offer-countdown small {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.48rem;
+    line-height: 1;
+    margin-top: 4px;
+    color: var(--ink-soft);
+    font-weight: 800;
+  }
+
+  .offer-row .price-line {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--ink);
+    text-align: center;
+  }
+
+  .offer-row .btn-primary {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-width: 0;
+    padding: 16px 10px;
+    text-align: center;
+    background: var(--cherry);
+    color: var(--paper);
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    border: 3px solid var(--ink);
+    border-radius: 18px;
+    box-shadow: 5px 5px 0 var(--ink);
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 3;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+
+  .offer-row .btn-primary:hover,
+  .btn-primary:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+
+  .offer-row .btn-primary:active,
+  .btn-primary:active {
+    transform: translate(4px, 4px);
+    box-shadow: 1px 1px 0 var(--ink);
   }
 
   .price-line .dot { color: var(--cherry-deep); }
@@ -394,16 +334,19 @@
     z-index: 3;
     transition: transform .15s ease, box-shadow .15s ease;
   }
-  .btn-primary:hover { transform: translate(2px, 2px); box-shadow: 3px 3px 0 var(--ink); }
-  .btn-primary:active { transform: translate(4px, 4px); box-shadow: 1px 1px 0 var(--ink); }
-  .btn-primary:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
 
-  /* ---------- section headings ---------- */
+  .btn-primary:focus-visible {
+    outline: 3px solid var(--ink);
+    outline-offset: 3px;
+  }
+
+  /* SECTIONS */
   .section {
     padding: 46px 0;
     position: relative;
     border-bottom: 3px solid var(--ink);
   }
+
   .section:last-of-type { border-bottom: none; }
 
   .section-heading {
@@ -416,7 +359,6 @@
     z-index: 2;
   }
 
-  /* ---------- mini experience cards ---------- */
   .experience-bg { background: var(--blue); }
 
   .exp-grid {
@@ -434,6 +376,7 @@
     padding: 18px 14px;
     box-shadow: 4px 4px 0 var(--ink);
   }
+
   .exp-card .emoji { font-size: 1.6rem; }
   .exp-card h3 {
     font-family: var(--font-display);
@@ -446,80 +389,65 @@
     margin: 0;
     line-height: 1.35;
   }
+
   .exp-card:nth-child(1) { transform: rotate(-1.2deg); }
   .exp-card:nth-child(2) { transform: rotate(1deg); }
   .exp-card:nth-child(3) { transform: rotate(1.4deg); }
   .exp-card:nth-child(4) { transform: rotate(-1deg); }
 
-  /* ---------- event details ---------- */
   .details-bg { background: var(--mint); }
 
-  .ticket {
-    position: relative;
-    background: var(--paper);
-    border: 3px solid var(--ink);
-    border-radius: 22px;
-    padding: 26px 22px 24px;
-    z-index: 2;
-    box-shadow: 6px 6px 0 var(--ink);
-  }
-  .ticket::before, .ticket::after {
-    content: "";
-    position: absolute;
-    width: 26px;
-    height: 26px;
-    background: var(--mint);
-    border: 3px solid var(--ink);
-    border-radius: 50%;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  .ticket::before { left: -16px; }
-  .ticket::after { right: -16px; }
-
-  .ticket-row {
-    display: flex;
-    align-items: baseline;
+  .venue-gallery {
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
     gap: 10px;
-    font-size: 0.98rem;
-    font-weight: 700;
-    padding: 8px 0;
-    border-bottom: 2px dashed #E9DFCF;
-  }
-  .ticket-row:last-of-type { border-bottom: none; }
-  .ticket-row .em { font-size: 1.1rem; }
-
-  .ticket-sticker-row {
-    display: flex;
-    justify-content: center;
-    margin: 18px 0 6px;
+    margin-top: 24px;
   }
 
-  .ticket-price {
-    text-align: center;
-    margin-top: 18px;
-  }
-  .ticket-price .amt {
-    font-family: var(--font-display);
-    font-size: 2.4rem;
-    font-weight: 700;
-    color: var(--cherry-deep);
+  .venue-gallery img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 18px;
     display: block;
   }
-  .ticket-price .seats {
-    font-size: 0.85rem;
-    font-weight: 800;
-    color: var(--ink-soft);
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
+
+  .venue-gallery img:first-child {
+    grid-row: span 2;
+    height: 370px;
   }
 
-  /* ---------- final CTA ---------- */
+  .venue-name {
+    font-size: 0.9rem;
+    margin-top: 4px;
+    color: var(--ink-soft);
+  }
+
+  .section-sub,
+  .eyebrow {
+    position: relative;
+    z-index: 2;
+  }
+
+  .eyebrow {
+    font-size: 0.8rem;
+    margin: 0 0 12px;
+    color: var(--ink-soft);
+  }
+
+  .section-sub {
+    font-size: 0.95rem;
+    line-height: 1.45;
+    color: var(--ink-soft);
+    margin: -10px 0 0;
+  }
+
   .final-bg {
     background: var(--yellow);
     text-align: center;
     padding-bottom: 56px;
   }
+
   .final-heading {
     font-family: var(--font-display);
     font-weight: 700;
@@ -529,6 +457,7 @@
     position: relative;
     z-index: 2;
   }
+
   .final-sub {
     font-family: var(--font-hand);
     font-size: 1.35rem;
@@ -545,17 +474,20 @@
     color: var(--ink-soft);
     background: var(--cream);
   }
+
   footer a { text-decoration: underline; }
 
-  /* ---------- fixed mobile bar ---------- */
   .mobile-bar {
     position: fixed;
-    left: 0; right: 0; bottom: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     z-index: 50;
     background: var(--cherry);
     border-top: 3px solid var(--ink);
     padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
   }
+
   .mobile-bar a {
     display: flex;
     align-items: center;
@@ -568,34 +500,18 @@
     text-decoration: none;
   }
 
+  @media (max-width: 600px) {
+    .wrap { max-width: 480px; }
+    .hero { padding-top: 30px; }
+    .hero-headline { font-size: 2.35rem; }
+    .offer-row { grid-template-columns: max-content minmax(0, 1fr); }
+    .offer-timer { max-width: none; }
+    .offer-price { font-size: 1.4rem; }
+  }
+
   @media (min-width: 540px) {
     .wrap { max-width: 500px; }
   }
-
-  .venue-gallery {
-  display: grid;
-  grid-template-columns: 1.25fr 1fr;
-  gap: 10px;
-  margin-top: 24px;
-}
-
-.venue-gallery img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 18px;
-  display: block;
-}
-
-.venue-gallery img:first-child {
-  grid-row: span 2;
-  height: 370px;
-}
-  
-  .reveal {
-  opacity: 1 !important;
-  transform: none !important;
-}
 </style>
 </head>
 <body>
