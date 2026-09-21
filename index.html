@@ -203,15 +203,27 @@
   }
 /* ---------- LIMITED-TIME OFFER ---------- */
 
+.offer-row .btn-primary {
+  grid-column: 1 / -1;
+  grid-row: 3;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-width: 0;
+
+  padding: 16px 10px;
 .offer-row {
   display: grid;
-  grid-template-columns: 1fr 1.35fr;
-  align-items: center;
-  gap: 12px 14px;
+  grid-template-columns: 90px 1fr;
+  gap: 12px;
   width: 100%;
   margin: 4px 0 18px;
   position: relative;
   z-index: 3;
+  align-items: center;
 }
 
 /* PRICE */
@@ -225,7 +237,6 @@
   font-weight: 700;
   color: var(--cherry-deep);
   white-space: nowrap;
-  text-align: left;
 }
 
 .offer-old-price {
