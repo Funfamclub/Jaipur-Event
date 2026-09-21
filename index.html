@@ -203,11 +203,14 @@
   }
 /* ---------- LIMITED-TIME OFFER ---------- */
 
+/* ---------- LIMITED-TIME OFFER ---------- */
+
 .offer-row {
   display: grid;
-  grid-template-columns: auto auto 1fr auto;
+  grid-template-columns: 75px 142px 70px 135px;
   align-items: center;
-  gap: 16px;
+  column-gap: 6px;
+  width: 100%;
   margin: 4px 0 18px;
   position: relative;
   z-index: 3;
@@ -217,7 +220,7 @@
 
 .offer-price {
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   font-weight: 700;
   color: var(--cherry-deep);
   white-space: nowrap;
@@ -225,39 +228,39 @@
 
 .offer-old-price {
   color: var(--ink-soft);
-  font-size: 0.95rem;
+  font-size: 0.82rem;
   font-weight: 600;
   text-decoration: line-through;
-  margin-left: 4px;
+  margin-left: 2px;
 }
 
 /* COUNTDOWN */
 
 .offer-timer {
+  width: 142px;
   background: var(--paper);
   border: 2px solid var(--ink);
   border-radius: 14px;
-  padding: 7px 10px;
+  padding: 7px 8px;
   box-shadow: 3px 3px 0 var(--ink);
   text-align: center;
-  min-width: 142px;
-  box-sizing: border-box;
 }
 
 .offer-timer-label {
   display: block;
-  font-size: 0.62rem;
+  font-size: 0.60rem;
   font-weight: 800;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.03em;
   color: var(--ink-soft);
   margin-bottom: 2px;
+  white-space: nowrap;
 }
 
 .offer-countdown {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 8px;
+  gap: 6px;
   margin-top: 4px;
 }
 
@@ -265,12 +268,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 24px;
+  min-width: 23px;
 }
 
 .offer-countdown strong {
   font-family: var(--font-display);
-  font-size: 1rem;
+  font-size: 0.95rem;
   line-height: 1;
   color: var(--cherry-deep);
 }
@@ -278,7 +281,7 @@
 .offer-countdown small {
   display: block;
   font-family: var(--font-body);
-  font-size: 0.5rem;
+  font-size: 0.48rem;
   line-height: 1;
   margin-top: 4px;
   color: var(--ink-soft);
@@ -288,34 +291,37 @@
 /* SEATS */
 
 .offer-row .price-line {
+  width: 70px;
   margin: 0;
   padding: 0;
   font-family: var(--font-display);
-  font-size: 1.15rem;
+  font-size: 1rem;
   font-weight: 700;
-  line-height: 1.25;
+  line-height: 1.15;
   color: var(--ink);
   text-align: center;
-  white-space: nowrap;
 }
 
-/* BUTTON */
+/* BOOK BUTTON */
 
 .offer-row .btn-primary {
-  display: block;
-  width: auto;
-  min-width: 155px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 135px;
+  min-width: 135px;
   box-sizing: border-box;
+
+  padding: 16px 10px;
 
   text-align: center;
   background: var(--cherry);
   color: var(--paper);
 
   font-family: var(--font-display);
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 600;
-
-  padding: 18px 20px;
 
   border: 3px solid var(--ink);
   border-radius: 18px;
@@ -340,35 +346,6 @@
   box-shadow: 1px 1px 0 var(--ink);
 }
 
-.offer-row .btn-primary:focus-visible {
-  outline: 3px solid var(--ink);
-  outline-offset: 3px;
-}
-
-
-/* ---------- TABLET ---------- */
-
-@media (max-width: 850px) {
-
-  .offer-row {
-    grid-template-columns: auto 1fr auto;
-    gap: 12px;
-  }
-
-  .offer-timer {
-    min-width: 135px;
-  }
-
-  .offer-row .price-line {
-    font-size: 1rem;
-  }
-
-  .offer-row .btn-primary {
-    min-width: 140px;
-    padding: 16px 15px;
-  }
-}
-
 
 /* ---------- MOBILE ---------- */
 
@@ -376,7 +353,7 @@
 
   .offer-row {
     grid-template-columns: 1fr 1fr;
-    gap: 14px;
+    gap: 12px;
   }
 
   .offer-price {
@@ -385,19 +362,17 @@
 
   .offer-timer {
     width: 100%;
-    min-width: 0;
   }
 
   .offer-row .price-line {
+    width: auto;
     font-size: 1rem;
     white-space: normal;
-    text-align: center;
   }
 
   .offer-row .btn-primary {
     width: 100%;
     min-width: 0;
-    padding: 15px 12px;
   }
 }
   
