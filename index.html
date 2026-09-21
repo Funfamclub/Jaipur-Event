@@ -201,18 +201,20 @@
     position: relative;
     z-index: 3;
   }
-/* ---------- limited-time offer ---------- */
+/* ---------- LIMITED-TIME OFFER ---------- */
+
 .offer-row {
   display: grid;
   grid-template-columns: auto auto 1fr auto;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
   margin: 4px 0 18px;
   position: relative;
   z-index: 3;
 }
 
 /* PRICE */
+
 .offer-price {
   font-family: var(--font-display);
   font-size: 1.5rem;
@@ -229,7 +231,8 @@
   margin-left: 4px;
 }
 
-/* TIMER */
+/* COUNTDOWN */
+
 .offer-timer {
   background: var(--paper);
   border: 2px solid var(--ink);
@@ -238,7 +241,7 @@
   box-shadow: 3px 3px 0 var(--ink);
   text-align: center;
   min-width: 142px;
-  flex-shrink: 0;
+  box-sizing: border-box;
 }
 
 .offer-timer-label {
@@ -283,35 +286,47 @@
 }
 
 /* SEATS */
-.offer-row .seats-left {
-  white-space: nowrap;
+
+.offer-row .price-line {
+  margin: 0;
+  padding: 0;
   font-family: var(--font-display);
-  font-weight: 700;
   font-size: 1.15rem;
+  font-weight: 700;
   line-height: 1.25;
   color: var(--ink);
   text-align: center;
+  white-space: nowrap;
 }
 
 /* BUTTON */
+
 .offer-row .btn-primary {
   display: block;
   width: auto;
   min-width: 155px;
+  box-sizing: border-box;
+
   text-align: center;
   background: var(--cherry);
   color: var(--paper);
+
   font-family: var(--font-display);
   font-size: 1.15rem;
   font-weight: 600;
+
   padding: 18px 20px;
+
   border: 3px solid var(--ink);
   border-radius: 18px;
   box-shadow: 5px 5px 0 var(--ink);
+
   text-decoration: none;
   cursor: pointer;
+
   position: relative;
   z-index: 3;
+
   transition: transform .15s ease, box-shadow .15s ease;
 }
 
@@ -330,8 +345,11 @@
   outline-offset: 3px;
 }
 
-/* ---------- tablet / smaller desktop ---------- */
+
+/* ---------- TABLET ---------- */
+
 @media (max-width: 850px) {
+
   .offer-row {
     grid-template-columns: auto 1fr auto;
     gap: 12px;
@@ -341,7 +359,7 @@
     min-width: 135px;
   }
 
-  .offer-row .seats-left {
+  .offer-row .price-line {
     font-size: 1rem;
   }
 
@@ -351,11 +369,14 @@
   }
 }
 
-/* ---------- mobile ---------- */
+
+/* ---------- MOBILE ---------- */
+
 @media (max-width: 600px) {
+
   .offer-row {
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    gap: 14px;
   }
 
   .offer-price {
@@ -363,20 +384,19 @@
   }
 
   .offer-timer {
-    min-width: 0;
     width: 100%;
-    box-sizing: border-box;
+    min-width: 0;
   }
 
-  .offer-row .seats-left {
+  .offer-row .price-line {
     font-size: 1rem;
     white-space: normal;
+    text-align: center;
   }
 
   .offer-row .btn-primary {
     width: 100%;
     min-width: 0;
-    box-sizing: border-box;
     padding: 15px 12px;
   }
 }
@@ -652,27 +672,44 @@
 </div>
 
 <div class="offer-row">
+
   <div class="offer-price">
     ₹299
     <span class="offer-old-price">₹499</span>
   </div>
 
   <div class="offer-timer">
-  <span class="offer-timer-label">OFFER ENDS 22 SEP</span>
+    <span class="offer-timer-label">OFFER ENDS 22 SEP</span>
 
-  <div class="offer-countdown" id="offer-countdown">
-    <div><strong id="days">01</strong><small>Day</small></div>
-    <div><strong id="hours">00</strong><small>Hrs</small></div>
-    <div><strong id="minutes">00</strong><small>Min</small></div>
-    <div><strong id="seconds">00</strong><small>Sec</small></div>
+    <div class="offer-countdown" id="offer-countdown">
+      <div>
+        <strong id="days">01</strong>
+        <small>Day</small>
+      </div>
+      <div>
+        <strong id="hours">00</strong>
+        <small>Hrs</small>
+      </div>
+      <div>
+        <strong id="minutes">00</strong>
+        <small>Min</small>
+      </div>
+      <div>
+        <strong id="seconds">00</strong>
+        <small>Sec</small>
+      </div>
+    </div>
   </div>
+
+  <p class="price-line">· 15 seats left only</p>
+
+  <a href="https://rzp.io/rzp/UpsFTGq"
+     class="btn-primary"
+     id="hero-cta">
+    🌷 Book my seat
+  </a>
+
 </div>
-
-<p class="price-line">
-  </span> &nbsp;·&nbsp;15 seats left only
-</p>
-    <a href="https://rzp.io/rzp/UpsFTGq" class="btn-primary" id="hero-cta">🌷 Book my seat</a>
-  </div>
 </section>
 
 <!-- ============ MINI EXPERIENCE ============ -->
