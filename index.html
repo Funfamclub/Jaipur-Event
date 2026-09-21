@@ -248,11 +248,30 @@
 }
 
 .offer-countdown {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 3px;
+}
+
+.offer-countdown div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+}
+
+.offer-countdown strong {
   font-family: var(--font-display);
-  font-size: 1.05rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  font-size: 1rem;
   color: var(--cherry-deep);
+}
+
+.offer-countdown small {
+  font-size: 0.48rem;
+  font-weight: 800;
+  color: var(--ink-soft);
+  margin-top: 3px;
 }
   .price-line .dot { color: var(--cherry-deep); }
 
@@ -531,8 +550,13 @@
   </div>
 
   <div class="offer-timer">
-    <span class="offer-timer-label">OFFER ENDS IN</span>
-    <span class="offer-countdown" id="offer-countdown">24:00:00</span>
+  <span class="offer-timer-label">OFFER ENDS 22 SEP</span>
+
+  <div class="offer-countdown" id="offer-countdown">
+    <div><strong id="days">01</strong><small>Day</small></div>
+    <div><strong id="hours">00</strong><small>Hrs</small></div>
+    <div><strong id="minutes">00</strong><small>Min</small></div>
+    <div><strong id="seconds">00</strong><small>Sec</small></div>
   </div>
 </div>
 
@@ -668,36 +692,38 @@
   } else {
     revealEls.forEach(el => el.classList.add("in-view"));
   }
-  // ====== LIMITED-TIME OFFER COUNTDOWN ======
-// Set the offer to end 12 hours from the moment this code is set.
-// IMPORTANT: replace this timestamp with the exact expiry time
-// if you want the same deadline for every visitor.
+  // ====== 21–22 SEPTEMBER OFFER COUNTDOWN ======
 
-const OFFER_END_TIME = new Date("2026-09-22T10:51:00+05:30").getTime();
+const OFFER_END_TIME =
+  new Date("2026-09-22T23:59:59+05:30").getTime();
 
-const countdown = document.getElementById("offer-countdown");
+const daysEl = document.getElementById("days");
+const hoursEl = document.getElementById("hours");
+const minutesEl = document.getElementById("minutes");
+const secondsEl = document.getElementById("seconds");
 
 function updateCountdown() {
-  if (!countdown) return;
-
-  const now = Date.now();
-  const remaining = OFFER_END_TIME - now;
+  const remaining = OFFER_END_TIME - Date.now();
 
   if (remaining <= 0) {
-    countdown.textContent = "OFFER ENDED";
+    daysEl.textContent = "00";
+    hoursEl.textContent = "00";
+    minutesEl.textContent = "00";
+    secondsEl.textContent = "00";
     return;
   }
 
   const totalSeconds = Math.floor(remaining / 1000);
 
-  const hours = Math.floor(totalSeconds / 3600);
+  const days = Math.floor(totalSeconds / 86400);
+  const hours = Math.floor((totalSeconds % 86400) / 3600);
   const minutes = Math.floor((totalSeconds % 3600) / 60);
   const seconds = totalSeconds % 60;
 
-  countdown.textContent =
-    String(hours).padStart(2, "0") + ":" +
-    String(minutes).padStart(2, "0") + ":" +
-    String(seconds).padStart(2, "0");
+  daysEl.textContent = String(days).padStart(2, "0");
+  hoursEl.textContent = String(hours).padStart(2, "0");
+  minutesEl.textContent = String(minutes).padStart(2, "0");
+  secondsEl.textContent = String(seconds).padStart(2, "0");
 }
 
 updateCountdown();
