@@ -4,7 +4,7 @@
 <title>Make Your Own forever Bouquet — Jaipur</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&amp;family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,600&amp;family=Caveat:wght@500;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&amp;family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,600&amp;family=Caveat:wght@500;700&amp;display=swap" rel="stylesheet"> 
 <style>
   :root {
     --cream: #FFF8EF;
@@ -204,62 +204,6 @@
     font-weight: 600;
     text-decoration: line-through;
     margin-left: 2px;
-  }
-
-  .offer-timer {
-    grid-column: 2;
-    grid-row: 1;
-    width: 100%;
-    max-width: 220px;
-    justify-self: stretch;
-    background: var(--paper);
-    border: 2px solid var(--ink);
-    border-radius: 14px;
-    padding: 7px 8px;
-    box-shadow: 3px 3px 0 var(--ink);
-    text-align: center;
-  }
-
-  .offer-timer-label {
-    display: block;
-    font-size: 0.60rem;
-    font-weight: 800;
-    letter-spacing: 0.03em;
-    color: var(--ink-soft);
-    margin-bottom: 2px;
-    white-space: nowrap;
-  }
-
-  .offer-countdown {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 6px;
-    margin-top: 4px;
-  }
-
-  .offer-countdown div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-width: 23px;
-  }
-
-  .offer-countdown strong {
-    font-family: var(--font-display);
-    font-size: 0.95rem;
-    line-height: 1;
-    color: var(--cherry-deep);
-  }
-
-  .offer-countdown small {
-    display: block;
-    font-family: var(--font-body);
-    font-size: 0.48rem;
-    line-height: 1;
-    margin-top: 4px;
-    color: var(--ink-soft);
-    font-weight: 800;
   }
 
   .offer-row .price-line {
@@ -566,29 +510,6 @@
     <span class="offer-old-price">₹499</span>
   </div>
 
-  <div class="offer-timer">
-    <span class="offer-timer-label">OFFER ENDS 22 SEP</span>
-
-    <div class="offer-countdown" id="offer-countdown">
-      <div>
-        <strong id="days">01</strong>
-        <small>Day</small>
-      </div>
-      <div>
-        <strong id="hours">00</strong>
-        <small>Hrs</small>
-      </div>
-      <div>
-        <strong id="minutes">00</strong>
-        <small>Min</small>
-      </div>
-      <div>
-        <strong id="seconds">00</strong>
-        <small>Sec</small>
-      </div>
-    </div>
-  </div>
-
   <p class="price-line">· 15 seats left only</p>
 
   <a href="https://rzp.io/rzp/UpsFTGq"
@@ -690,7 +611,7 @@
 <script>
   // ====== EDITABLE VARIABLES ======
   const WORKSHOP_NAME   = "Make Your Own Forever Bouquet";
-  const PRICE           = "₹299";
+  const PRICE           = "₹349";
   const DATE = "Sunday, 27th September";
   const TIME = "1PM–3PM";
   const VENUE_NAME = "Bubblier, Vaishali Nagar";
@@ -725,42 +646,6 @@
   } else {
     revealEls.forEach(el => el.classList.add("in-view"));
   }
-  // ====== 21–22 SEPTEMBER OFFER COUNTDOWN ======
-
-const OFFER_END_TIME =
-  new Date("2026-09-22T23:59:59+05:30").getTime();
-
-const daysEl = document.getElementById("days");
-const hoursEl = document.getElementById("hours");
-const minutesEl = document.getElementById("minutes");
-const secondsEl = document.getElementById("seconds");
-
-function updateCountdown() {
-  const remaining = OFFER_END_TIME - Date.now();
-
-  if (remaining <= 0) {
-    daysEl.textContent = "00";
-    hoursEl.textContent = "00";
-    minutesEl.textContent = "00";
-    secondsEl.textContent = "00";
-    return;
-  }
-
-  const totalSeconds = Math.floor(remaining / 1000);
-
-  const days = Math.floor(totalSeconds / 86400);
-  const hours = Math.floor((totalSeconds % 86400) / 3600);
-  const minutes = Math.floor((totalSeconds % 3600) / 60);
-  const seconds = totalSeconds % 60;
-
-  daysEl.textContent = String(days).padStart(2, "0");
-  hoursEl.textContent = String(hours).padStart(2, "0");
-  minutesEl.textContent = String(minutes).padStart(2, "0");
-  secondsEl.textContent = String(seconds).padStart(2, "0");
-}
-
-updateCountdown();
-setInterval(updateCountdown, 1000);
 </script>
 
 
