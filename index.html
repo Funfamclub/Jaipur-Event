@@ -456,6 +456,23 @@
   @media (min-width: 540px) {
     .wrap { max-width: 500px; }
   }
+
+  .venue-video {
+  margin-top: 24px;
+  border: 3px solid var(--ink);
+  border-radius: 22px;
+  overflow: hidden;
+  background: var(--paper);
+  box-shadow: 6px 6px 0 var(--ink);
+  transform: rotate(-1deg);
+}
+
+.venue-video video {
+  width: 100%;
+  display: block;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
 </style>
 </head>
 <body>
@@ -569,11 +586,16 @@
        Some of our favourite memories from the last event.🌷
     </p>
 
-    <div class="venue-gallery">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLRGZR27uHDJYIwPj9Jnob-wVc0UaAcOtoqrIdzU_XAOAxSRLyD1QZz02H&s=10" alt="Bubblier venue">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzTFQ3kSM7DYN-CMgS4blmG40iDLn47J8wIr4ISEE27c4VlUgkpsLQjmM&s=10" alt="Bubblier venue">
-      <img src="img.jpeg" alt="Bubblier venue">
-    </div>
+    <div class="venue-video">
+  <video
+    src="bubblier.mp4"
+    autoplay
+    unmute
+    loop
+    playsinline
+    controls>
+  </video>
+</div>
 
     <div class="venue-name">
     
@@ -612,7 +634,7 @@
   const WORKSHOP_NAME   = "Make Your Own Forever Bouquet";
   const PRICE           = "₹349";
   const DATE = "Sunday, 27th September";
-  const TIME = "1PM–3PM";
+  const TIME = "1:30PM–4:30PM";
   const VENUE_NAME = "Bubblier, Vaishali Nagar";
   const VENUE_ADDRESS = "Vaishali Nagar, Jaipur";
   const PAYMENT_LINK    = "https://rzp.io/rzp/UpsFTGq";
