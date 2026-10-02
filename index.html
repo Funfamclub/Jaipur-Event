@@ -506,6 +506,70 @@
 .terms-section strong {
   color: var(--ink);
 }
+
+  .price-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 8px 0 18px;
+  position: relative;
+  z-index: 3;
+}
+
+.price-option {
+  background: var(--paper);
+  border: 2.5px solid var(--ink);
+  border-radius: 18px;
+  padding: 14px 10px;
+  text-align: center;
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+.price-option:first-child {
+  transform: rotate(-1deg);
+}
+
+.price-option:last-child {
+  transform: rotate(1deg);
+}
+
+.offer-price {
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  font-weight: 700;
+  color: var(--cherry-deep);
+  line-height: 1.1;
+}
+
+.offer-old-price {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  text-decoration: line-through;
+  margin-left: 3px;
+}
+
+.price-title {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+.price-desc {
+  font-size: 0.68rem;
+  line-height: 1.35;
+  color: var(--ink-soft);
+  margin: 5px 0 12px;
+}
+
+.price-btn {
+  display: block;
+  width: 100%;
+  padding: 9px 6px;
+  font-size: 0.72rem;
+}
+  
 </style>
 </head>
 <body>
@@ -553,20 +617,40 @@
   <div>📍 BrewAura, Vaishali Nagar, Jaipur</div>
 </div>
 
-<div class="offer-row">
+<div class="price-options">
 
-  <div class="offer-price">
-    ₹349
-    <span class="offer-old-price">₹499</span>
+  <div class="price-option">
+    <div class="offer-price">
+      ₹349
+      <span class="offer-old-price">₹499</span>
+    </div>
+
+    <div class="price-title">Entry for 1</div>
+    <div class="price-desc">20% OFF on F&amp;B at venue</div>
+
+    <a href="https://rzp.io/rzp/n1lG2w0"
+       class="btn-primary price-btn">
+      Book ₹349
+    </a>
   </div>
 
-  <p class="price-line">· 15 seats left only</p>
 
-  <a href="https://rzp.io/rzp/n1lG2w0"
-     class="btn-primary"
-     id="hero-cta">
-    🌷 Book my seat
-  </a>
+  <div class="price-option">
+    <div class="offer-price">₹499</div>
+
+    <div class="price-title">Entry for 1</div>
+    <div class="price-desc">₹150 cover charge redeemable at venue</div>
+
+    <!-- PUT YOUR ₹499 RAZORPAY LINK HERE -->
+    <a href="YOUR_499_RAZORPAY_LINK"
+       class="btn-primary price-btn">
+      Book ₹499
+    </a>
+  </div>
+
+</div>
+
+<p class="price-line">· 15 seats left only</p>
 
 </div>
 </section>
